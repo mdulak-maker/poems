@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAI Text Submission</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h4>OpenAI Text Submission</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="/openai" method="post">
+                            <div class="form-group">
+                                <label for="input">Input:</label>
+                                <textarea name="input" id="input" class="form-control" rows="10"></textarea>
+                            </div>
+                            <div class="form-group text-center">
+                                <input type="submit" value="Submit" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="response" class="mt-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("form").on("submit", function(event) {
+                event.preventDefault(); // Prevent the form from submitting the traditional way
+
+                $.ajax({
+                    url: "/openai",
+                    method: "POST",
+                    data: $(this).serialize(), // Serialize form data
+                    success: function(data) {
+                        $("#response").html("<div class='alert alert-success'><h4>Response:</h4><p>" + data + "</p></div>");
+                    },
+                    error: function() {
+                        $("#response").html("<div class='alert alert-danger'>An error occurred. Please try again.</div>");
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
