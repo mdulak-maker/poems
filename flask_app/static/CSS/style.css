@@ -1,3 +1,143 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.validation-text {
+    color: red;
+}
+
+.background-center {
+    height: 100vh;
+    display: flex;
+}
+
+/* LOGIN & REGISTRATION............. */
+.login-format {
+    display: flex;
+}
+
+.left-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    box-shadow: -2px 0px 50px;
+}
+
+.register-optn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.register-format {
+    background-color: rgb(247, 247, 247);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    margin: auto;
+    padding: 30px;
+    border:1px solid rgba(128, 128, 128, 0.332);
+    box-shadow: 2px 2px 10px;
+    border-radius: 15px;
+    gap: 50px;
+}
+
+.form-create {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-register {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    gap: 20px;
+}
+
+/* FORMS.......... */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    width:300px;
+    gap: 60px;
+    margin-top: 30px;
+}
+.form-login {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.index-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.form-input {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(128, 128, 128, 0.292);
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px -5px;
+    padding: 10px;
+    font-size: 15px;
+    width: 300px;
+}
+
+.create-row {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.register-input {
+    display: flex;
+    justify-content: center;
+    margin-top:20px;
+}
+
+/* BUTTONS.............. */
+.submit-btn {
+    background-color: rgba(219, 219, 219, 0.465);
+    color: rgb(78, 78, 78);
+    text-align: center;
+    padding: 8px;
+    font-size: 15px;
+    border: 2px solid rgb(171, 171, 171);
+    font-weight: 600;
+    border-radius: 10px;
+    min-width: 150px;
+    margin-top:15px;
+}
+
+.link-btn {
+    text-decoration: none;
+    text-align: center;
+    width: 70px;
+    color: rgb(2, 133, 189);
+    border: 2px solid rgb(11, 50, 128);
+    border-radius: 5px;
+    padding: 5px;
+}
+
 #input {
     width: 100%;  /* or any specific width like 500px */
     height: 300px;  /* or any specific height */
