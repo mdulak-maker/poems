@@ -4,16 +4,28 @@ from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 from flask import render_template, redirect, request, session, flash
 
-# User Login and Regstration
+# User Login Route
 @app.route('/')
 def login():
     return render_template("login.html")
 
+@app.route('/login', methods=['POST'])
+def login_post():
+    user = User.get_by_email(request.form)
+    if not user:
+        flash("Invalid Email.", "login")
+        return redirect("/")
+    if not bcrypt.check_password_hash(user.password, request.form['password']):
+        flash("Invalid Password", "login")
+        return redirect("/")
+    session['user_id'] = user.id
+    return redirect('/dashboard')
+
+# User Registration Route
 @app.route('/signup')
 def signup():
     return render_template('registration.html')
 
-# Redirect from this route still pending. Waiting on Dashboard html. ********** UPDATE REDIRECTING ROUT ************
 @app.route('/register', methods=['POST'])
 def register_user():
     if not User.validate_user(request.form):
@@ -25,11 +37,17 @@ def register_user():
         return redirect("/")
     pw_hash = bcrypt.generate_password_hash(request.form['password'])
     data = {
-        "username": request.form['username'],
+        "first_name": request.form['first_name'],
+        "last_name": request.form['last_name'],
         "email": request.form['email'],
         "password" : pw_hash
     }
     user_id = User.save(data)
     session['user_id'] = user_id
-    return redirect("/user_dash") 
+    return redirect('/dashboard') 
 
+# User Logout Route
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/")
