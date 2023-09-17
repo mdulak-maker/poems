@@ -34,7 +34,7 @@ def create_poem():
 def view_poem(id):
     if 'user_id' not in session:
         return redirect('/')
-
+    
     return render_template('viewPoem.html',poem=Poem.get_by_id({'id': id}))
 
 # Poem Edit Route
