@@ -29,7 +29,7 @@ def index():
 @app.route('/openai', methods=['POST'])
 def submission():
     #define input submitted from form to be used. It's the conent that will be changed to sound more like Ben wrote it
-    user_input = request.form['input']
+    user_input = request.form.get('input')
 
     #added try 
     try:

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="dash-background">
+        <div class="top-nav">
+            <h1 class="">Welcome {{user.first_name}} {{user.last_name}}</h1>
+            <div class="profile-nav">
+                <a href="/poem/create" class="nav-link">Write a Poem</a>
+                <a href="/logout" class="nav-link"><p>Logout</p></a>
+            </div>
+        </div>
+        <h2 class="dash-title">Poem Dashboard</h2>
+        <div class="tab-container">
+            <button class="tab-btn active" data-tab="tab1">All Poems</button>
+            <button class="tab-btn" data-tab="tab2">My Poems</button>
+        </div>
+        <div id="tab-all-poems" class="tab-content">
+            <!-- TAB 1 -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Genre</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    {% for poem in poems %}
+                        <td>{{poem.id}}</td>
+                        <td>{{poem.title}}</td>
+                        <td>{{poem.author}}</td>
+                        <td>{{poem.genre}}</td>
+                        <td>
+                            <a href="###" class="action-link">View</a>
+                            <a href="###" class="action-link">Edit</a>
+                            <a href="###" class="action-link">Delete</a>
+                        </td>
+                    {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="tab-my-poems" class="tab-content">
+            <!-- TAB 2 -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Genre</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {% for my_poem in my_poems %}
+                            <td>{{my_poem.id}}</td>
+                            <td>{{my_poem.title}}</td>
+                            <td>{{my_poem.author}}</td>
+                            <td>{{my_poem.genre}}</td>
+                            <td>
+                                <a href="###" class="action-link">View</a>
+                                <a href="###" class="action-link">Edit</a>
+                                <a href="###" class="action-link">Delete</a>
+                            </td>
+                        {% endfor %}
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/dashTable.js') }}"></script>
+</body>
+</html>
