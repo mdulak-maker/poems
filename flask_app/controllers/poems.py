@@ -17,7 +17,7 @@ def create_poem():
         return redirect('/')
     if not Poem.validate_poem(request.form):
         return redirect('/poem/create')
-
+    print(request.form)
     data = {
         'id': id,
         'title': request.form['title'],

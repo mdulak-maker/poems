@@ -135,7 +135,7 @@ class Poem:
         if len(data['genre']) < 0:
             flash("Genre can not be blank.")
             is_valid = False
-        if data['poem_text'] <3:
+        if len(data['poem_text']) < 3:
             flash("Poem text must be at least 3 characters.")
             is_valid = False
         return is_valid
