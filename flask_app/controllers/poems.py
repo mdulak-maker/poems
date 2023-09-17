@@ -3,23 +3,12 @@ from flask import render_template, redirect, request, session, flash
 from flask_app.models.user import User
 from flask_app.models.poem import Poem
 
-# Dashboard
-# Dashboard html hasn't been created (DO NOT FORGET TO CHANGE)***
-@app.route("/dashboard")
-def dashboard():
-    if "user_id" not in session:
-        return redirect("/")
-    data={
-        "id": session["user_id"]
-    }
-    return render_template("dash.html", user=User.get_by_id(data), poem=Poem.get_all())
 
 # Poem Create Route
 @app.route('/poem/create')
 def create():
     if 'user_id' not in session:
         return redirect('/')
-
     return render_template('addPoem.html')
 
 @app.route('/poem/create/process', methods=['POST'])
