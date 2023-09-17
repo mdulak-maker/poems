@@ -68,11 +68,12 @@ class User:
         elif len(user["last_name"]) < 2:
 
         if len(user["first_name"]) < 2:
-            flash("First Name must be at least 2 characteres.")
+            flash("First Name must be at least 2 characters.")
             is_valid = False
         if len(user["last_name"]) < 2:
- 
-            flash("First Name must be at least 2 characteres.")
+
+            flash("First Name must be at least 2 characters.")
+
             is_valid = False
         if not EMAIL_REGEX.match(user['email']):
             flash("Invalid email address!")
@@ -90,7 +91,7 @@ class User:
         elif (user["confirm_pw"]) != (user["password"]):
 
         if len(user["password"]) < 8:
-            flash("Password must be at least 8 characteres.")
+            flash("Password must be at least 8 characters.")
             is_valid = False
         if (user["confirm_pw"]) != (user["password"]):
  
