@@ -36,6 +36,14 @@ class User:
             return False
         return cls(result[0])
     
+    @classmethod
+    def get_one(cls, user_id):
+        query = " SELECT * FROM users WHERE id = %(id)s;"
+        data = {'id':user_id}
+        results = connectToMySQL(cls.DB).query_db(query, data)
+        if not results:
+            return None
+        return cls(results[0])
 
     # VALIDATIONS:
     @staticmethod
