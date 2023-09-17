@@ -9,9 +9,9 @@
 <body>
     <div class="dash-background">
         <div class="top-nav">
-            <!-- Still missing Jinja for User Name -->
-            <h1 class="">User First_Name Last_Name</h1>
+            <h1 class="">Welcome {{user.first_name}} {{user.last_name}}</h1>
             <div class="profile-nav">
+                <a href="/poem/create" class="nav-link">Write a Poem</a>
                 <a href="/logout" class="nav-link"><p>Logout</p></a>
             </div>
         </div>
@@ -34,16 +34,17 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <!-- Still missing Jinja for content -->
-                        <td>Data 1</td>
-                        <td>Data 2</td>
-                        <td>Data 3</td>
-                        <td>Data 4</td>
+                    {% for poem in poems %}
+                        <td>{{poem.id}}</td>
+                        <td>{{poem.title}}</td>
+                        <td>{{poem.author}}</td>
+                        <td>{{poem.genre}}</td>
                         <td>
                             <a href="###" class="action-link">View</a>
                             <a href="###" class="action-link">Edit</a>
                             <a href="###" class="action-link">Delete</a>
                         </td>
+                    {% endfor %}
                     </tr>
                 </tbody>
             </table>
@@ -62,21 +63,22 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <!-- Still missing Jinja for content -->
-                        <td>Data A</td>
-                        <td>Data B</td>
-                        <td>Data C</td>
-                        <td>Data D</td>
-                        <td>
-                            <a href="###" class="action-link">View</a>
-                            <a href="###" class="action-link">Edit</a>
-                            <a href="###" class="action-link">Delete</a>
-                        </td>
-                    </tr>
+                        {% for my_poem in my_poems %}
+                            <td>{{my_poem.id}}</td>
+                            <td>{{my_poem.title}}</td>
+                            <td>{{my_poem.author}}</td>
+                            <td>{{my_poem.genre}}</td>
+                            <td>
+                                <a href="###" class="action-link">View</a>
+                                <a href="###" class="action-link">Edit</a>
+                                <a href="###" class="action-link">Delete</a>
+                            </td>
+                        {% endfor %}
+                        </tr>
                 </tbody>
             </table>
         </div>
-        <script src="{{ url_for('static', filename='JS/dashTable.js') }}"></script>
     </div>
+    <script src="{{ url_for('static', filename='js/dashTable.js') }}"></script>
 </body>
 </html>

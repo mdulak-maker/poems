@@ -1,5 +1,6 @@
 from flask_app import app
 from flask_app.models.user import User
+from flask_app.models.poem import Poem
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 from flask import render_template, redirect, request, session, flash
@@ -46,11 +47,15 @@ def register_user():
     session['user_id'] = user_id
     return redirect('/dashboard') 
 
-#*********** Code line deactivated for preview. ACTIVATE after DB is active.************
+# Dashboard Route
 @app.route('/dashboard')
 def dashboard():
-    # user = User.get_one(session['user_id'])
-    return render_template('dash.html')
+    if "user_id" not in session:
+        return redirect("/")
+    user = User.get_by_id(session['user_id'])
+    poems = Poem.get_all()
+    my_poems = Poem.get_all_from_user(session['user_id'])
+    return render_template('dash.html', user=user, poems=poems, my_poems=my_poems)
 
 # User Logout Route
 @app.route("/logout")

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>View Selected Poem</title>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="/dashboard" class="nav-title"><h1>Poems</h1></a>
+        <div class="profile-nav">
+            <a href="/poem/create" class="nav-link">Write a Poem</a>
+            <a href="/logout" class="nav-link"><p>Logout</p></a>
+        </div>
+    </div>
+    <div class="display-format">
+        <div class="left-panel">
+            <h1>{{poem.title}}</h1>
+            <h2>{{poem.author}}</h2>
+            <h2>{{poem.genre}}</h2>
+        </div>
+        <div class="display-right-panel">
+            <div class="text-container">
+                {{poem.poem_text}}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

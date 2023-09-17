@@ -22,27 +22,72 @@ class Poem:
         return connectToMySQL(cls.DB).query_db(query,data)
     
     # Get All Poems by Users
+    # @classmethod
+    # def get_all(cls):
+    #     query = """SELECT * FROM poems JOIN users on poems.user_id = users.id;"""
+    #     results = connectToMySQL(cls.DB).query_db(query)
+    #     poems = []
+    #     for poem_dict in results:
+    #         poem_obj = Poem(poem_dict)
+            
+    #         user_obj = user.User({
+    #             "id": poem_dict['users.id'],
+    #             "first_name": poem_dict['first_name'],
+    #             "last_name": poem_dict['last_name'],
+    #             "email": poem_dict['email'],
+    #             "created_at": poem_dict['users.created_at'],
+    #             "updated_at": poem_dict['users.updated_at']
+    #         })
+            
+    #         poem_obj.user = user_obj
+    #         poems.append(poem_obj)
+    #     return poems
+    
     @classmethod
     def get_all(cls):
-        query = """SELECT * FROM poems JOIN users on poems.user_id = users.id;"""
+        query = "SELECT * FROM poems LEFT JOIN users ON poems.user_id = users.id;"
         results = connectToMySQL(cls.DB).query_db(query)
+        if not results:
+            return[]
         poems = []
-        for poem_dict in results:
-            poem_obj = Poem(poem_dict)
-            
-            user_obj = user.User({
-                "id": poem_dict['users.id'],
-                "first_name": poem_dict['first_name'],
-                "last_name": poem_dict['last_name'],
-                "email": poem_dict['email'],
-                "created_at": poem_dict['users.created_at'],
-                "updated_at": poem_dict['users.updated_at']
-            })
-            
-            poem_obj.user = user_obj
-            poems.append(poem_obj)
+        for row in results:
+            one_poem = cls(row)
+            data = {'id': row['users.id'],
+                    'first_name': row['first_name'],
+                    'last_name': row['last_name'],
+                    'email': row['email'],
+                    'password': row['password'],
+                    'created_at': row['users.created_at'],
+                    'updated_at': row['users.updated_at']
+                    }
+            one_poem.user = user.User(data)
+            poems.append(one_poem)
+            print(f'**************{poems}')
         return poems
-    
+
+
+    @classmethod
+    def get_all_from_user(cls, user_id):
+        query = "SELECT * FROM poems LEFT JOIN users ON poems.user_id = users.id WHERE users.id = %(id)s;"
+        data = {'id': id}
+        results = connectToMySQL(cls.DB).query_db(query,data)
+        all_poems = []
+        print(f'**********************{results}')
+        for row in results:
+            one_poem = cls(row)
+            all_poems_creator_info = {
+                "id":row['users.id'],
+                "first_name":row['first_name'],
+                'last_name': row['last_name'],
+                'email': row['email'],
+                'password': row['password'],
+                'created_at': row['users.created_at'],
+                'updated_at': row['users.updated_at']
+                }
+            one_poem.user = user.User(all_poems_creator_info)
+            all_poems.append(one_poem)
+        return all_poems
+
     # Update Poems    
     @classmethod
     def update(cls,data):
@@ -70,6 +115,7 @@ class Poem:
                 "first_name": result['first_name'],
                 "last_name": result['last_name'],
                 "email": result['email'],
+                "password":result['password'],
                 "created_at": result['users.created_at'],
                 "updated_at": result['users.updated_at']
         }
