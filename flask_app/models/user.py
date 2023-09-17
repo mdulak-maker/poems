@@ -49,16 +49,16 @@ class User:
     def validate_user(user):
         is_valid = True
         if len(user["first_name"]) < 2:
-            flash("First Name must be at least 2 characteres.")
+            flash("First Name must be at least 2 characters.")
             is_valid = False
         if len(user["last_name"]) < 2:
-            flash("First Name must be at least 2 characteres.")
+            flash("First Name must be at least 2 characters.")
             is_valid = False
         if not EMAIL_REGEX.match(user['email']):
             flash("Invalid email address!")
             is_valid = False
         if len(user["password"]) < 8:
-            flash("Password must be at least 8 characteres.")
+            flash("Password must be at least 8 characters.")
             is_valid = False
         if (user["confirm_pw"]) != (user["password"]):
             flash("Passwords do not match.")
