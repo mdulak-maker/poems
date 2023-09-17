@@ -7,22 +7,25 @@
     <title>View Selected Poem</title>
 </head>
 <body>
-    <div class="top-nav">
-        <a href="/dashboard" class="nav-title"><h1>Poems</h1></a>
-        <div class="profile-nav">
-            <a href="/poem/create" class="nav-link">Write a Poem</a>
-            <a href="/logout" class="nav-link"><p>Logout</p></a>
+    <div class="display-background">
+        <div class="top-nav">
+            <a href="/dashboard" class="nav-title"><h1>Poems</h1></a>
+            <div class="profile-nav">
+                <a href="/poem/create" class="nav-link">Write a Poem</a>
+                <a href="/logout" class="nav-link"><p>Logout</p></a>
+            </div>
         </div>
-    </div>
-    <div class="display-format">
-        <div class="left-panel">
-            <h1>{{poem.title}}</h1>
-            <h2>{{poem.author}}</h2>
-            <h2>{{poem.genre}}</h2>
-        </div>
-        <div class="display-right-panel">
-            <div class="text-container">
-                {{poem.poem_text}}
+        <div class="display-format">
+            <div class="display-left-panel">
+                <h1>{{poem.title}}</h1>
+                <h2>Author: <span style="font-weight: 400;color: rgb(103, 103, 103)">{{poem.author}}</span></h2>
+                <h2>Genre: <span style="font-weight: 400;color: rgb(103, 103, 103)">{{poem.genre}}</span></h2>
+                <a href="/poem/edit/{{poem.id}}" class="edit-btn">Edit Poem</a>
+            </div>
+            <div class="display-right-panel">
+                <div class="text-container">
+                    {{poem.poem_text}}
+                </div>
             </div>
         </div>
     </div>
