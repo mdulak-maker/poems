@@ -12,7 +12,7 @@ def dashboard():
     data={
         "id": session["user_id"]
     }
-    return render_template("dashboard.html", user=User.get_by_id(data), poem=Poem.get_all())
+    return render_template("dash.html", user=User.get_by_id(data), poem=Poem.get_all())
 
 # Poem Create Route
 @app.route('/poem/create')
