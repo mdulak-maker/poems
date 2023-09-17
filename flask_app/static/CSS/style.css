@@ -12,7 +12,7 @@
     display: flex;
 }
 
-/* LOGIN & REGISTRATION............. */
+/* .................................LOGIN & REGISTRATION. */
 .login-format {
     display: flex;
 }
@@ -69,7 +69,7 @@
     gap: 20px;
 }
 
-/* FORMS.......... */
+/* .......................................FORMS. */
 .signup-form {
     display: flex;
     flex-direction: column;
@@ -114,7 +114,7 @@
     margin-top:20px;
 }
 
-/* BUTTONS.............. */
+/* .....................................................BUTTONS. */
 .submit-btn {
     background-color: rgba(219, 219, 219, 0.465);
     color: rgb(78, 78, 78);
@@ -137,6 +137,78 @@
     border-radius: 5px;
     padding: 5px;
 }
+
+/* .......................................TOP NAV */
+.top-nav {
+    background-color: rgb(116, 116, 116);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: whitesmoke;
+    padding: 20px 40px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* ........................................DASHBOARD */
+.dash-title {
+    color: gray;
+    padding: 20px 40px;
+}
+
+.dash-background {
+    background-color: gainsboro;
+    height: 100vh;
+}
+
+.tab-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tab-btn {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+.tab-btn.active {
+    background-color: #ddd;
+}
+
+/* Style for tab content */
+.tab-content {
+    display: none;
+}
+
+.tab-content table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tab-content table th, .tab-content table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Display selected tab content */
+.tab-content.active {
+    display: block;
+}
+
+
+
+
+
 
 #input {
     width: 100%;  /* or any specific width like 500px */

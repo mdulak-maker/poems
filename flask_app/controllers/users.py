@@ -46,6 +46,12 @@ def register_user():
     session['user_id'] = user_id
     return redirect('/dashboard') 
 
+#*********** Code line deactivated for preview. ACTIVATE after DB is active.************
+@app.route('/dashboard')
+def dashboard():
+    # user = User.get_one(session['user_id'])
+    return render_template('dash.html')
+
 # User Logout Route
 @app.route("/logout")
 def logout():
