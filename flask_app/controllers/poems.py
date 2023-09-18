@@ -19,7 +19,7 @@ def create_poem():
         return redirect('/poem/create')
     print(request.form)
     data = {
-        'id': id,
+        'user_id': session["user_id"],
         'title': request.form['title'],
         'author': request.form['author'],
         'genre': request.form['genre'],

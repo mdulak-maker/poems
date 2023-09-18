@@ -17,7 +17,7 @@ class Poem:
     # Create Poems
     @classmethod
     def save(cls,data):
-        query = """INSERT INTO poems (title,author,genre,poem_text)
+        query = """INSERT INTO poems (title,author,genre,poem_text, user_id)
                 VALUES (%(title)s,%(author)s,%(genre)s,%(poem_text)s,%(user_id)s);"""
         return connectToMySQL(cls.DB).query_db(query,data)
     
