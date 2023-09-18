@@ -91,13 +91,9 @@ class Poem:
     # Update Poems    
     @classmethod
     def update(cls,data):
-        query = """UPDATE poems
-                SET title = %(title)s,
-                author = %(author)s,
-                genre = %(genre)s ,
-                poem_text = %(poem_text)s,
-                WHERE id = %(id)s;
-                """
+        query = """UPDATE poems 
+                SET title=%(title)s, author=%(author)s, genre=%(genre)s, poem_text=%(poem_text)s
+                WHERE id = %(id)s AND poems.user_id = %(user_id)s;"""
         return connectToMySQL(cls.DB).query_db(query,data)
     
     # Get Poem by ID

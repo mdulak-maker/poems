@@ -114,6 +114,14 @@
     margin-top:20px;
 }
 
+.edit-form-container {
+    display: flex;
+    justify-content: center;
+}
+
+.index-row label {
+    font-weight: 500;
+}
 /* .....................................................BUTTONS/LINKS. */
 .submit-btn {
     background-color: rgba(219, 219, 219, 0.465);
@@ -276,7 +284,41 @@
     border-radius: 10px;
 }
 
-#input {
-    width: 100%;  /* or any specific width like 500px */
-    height: 300px;  /* or any specific height */
+/* .......................................... EDIT POEM*/
+
+.edit-left-panel {
+    background-color: rgb(233, 233, 233) ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    gap: 30px;
+}
+
+.edit-right-panel{
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.form-edit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    gap: 20px;
+}
+
+.current-input {
+    display: flex;
+    gap:10px;
+    width: 350px;
+    border: 2px double gray;
+    border-radius: 10px;
+    padding: 10px;
 }
