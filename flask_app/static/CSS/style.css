@@ -196,22 +196,22 @@
     height: 100vh;
 }
 
-.tab-container {
+/* .....................................DASH TABLE */
+/* Style for tabs */
+.tabs {
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
 }
 
-.tab-btn {
-    background-color: #f0f0f0;
+.tab-button {
+    background-color: #007BFF;
+    color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    outline: none;
 }
 
-.tab-btn.active {
-    background-color: #ddd;
+.tab-button:hover {
+    background-color: #0056b3;
 }
 
 /* Style for tab content */
@@ -219,22 +219,22 @@
     display: none;
 }
 
-.tab-content table {
-    border-collapse: collapse;
+table {
     width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.tab-content table th, .tab-content table td {
+th, td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
 }
 
-/* Display selected tab content */
-.tab-content.active {
+/* Show the first tab by default */
+#tab1 {
     display: block;
 }
-
 /*...................................... VIEW ONE POEM */
 .display-background {
     height: 100vh;

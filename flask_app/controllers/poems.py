@@ -9,7 +9,8 @@ from flask_app.models.poem import Poem
 def create():
     if 'user_id' not in session:
         return redirect('/')
-    return render_template('addPoem.html')
+    user=User.get_by_id(session['user_id'])
+    return render_template('addPoem.html', user=user)
 
 @app.route('/poem/create/process', methods=['POST'])
 def create_poem():
@@ -19,11 +20,11 @@ def create_poem():
         return redirect('/poem/create')
     print(request.form)
     data = {
-        'id': id,
+        "user_id":session['user_id'],
         'title': request.form['title'],
         'author': request.form['author'],
         'genre': request.form['genre'],
-        'poem_text': request.form['poem_text'],
+        'poem_text': request.form['poem_text']
     }
     Poem.save(data)
     return redirect('/dashboard')

@@ -17,31 +17,9 @@ class Poem:
     # Create Poems
     @classmethod
     def save(cls,data):
-        query = """INSERT INTO poems (title,author,genre,poem_text)
+        query = """INSERT INTO poems (title, author, genre, poem_text, user_id) 
                 VALUES (%(title)s,%(author)s,%(genre)s,%(poem_text)s,%(user_id)s);"""
         return connectToMySQL(cls.DB).query_db(query,data)
-    
-    # Get All Poems by Users
-    # @classmethod
-    # def get_all(cls):
-    #     query = """SELECT * FROM poems JOIN users on poems.user_id = users.id;"""
-    #     results = connectToMySQL(cls.DB).query_db(query)
-    #     poems = []
-    #     for poem_dict in results:
-    #         poem_obj = Poem(poem_dict)
-            
-    #         user_obj = user.User({
-    #             "id": poem_dict['users.id'],
-    #             "first_name": poem_dict['first_name'],
-    #             "last_name": poem_dict['last_name'],
-    #             "email": poem_dict['email'],
-    #             "created_at": poem_dict['users.created_at'],
-    #             "updated_at": poem_dict['users.updated_at']
-    #         })
-            
-    #         poem_obj.user = user_obj
-    #         poems.append(poem_obj)
-    #     return poems
     
     @classmethod
     def get_all(cls):
@@ -64,7 +42,6 @@ class Poem:
             poems.append(one_poem)
             print(f'**************{poems}')
         return poems
-
 
     @classmethod
     def get_all_from_user(cls, user_id):
