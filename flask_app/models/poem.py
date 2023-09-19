@@ -47,7 +47,7 @@ class Poem:
     @classmethod
     def get_all_from_user(cls, user_id):
         query = "SELECT * FROM poems LEFT JOIN users ON poems.user_id = users.id WHERE users.id = %(id)s;"
-        data = {'id': id}
+        data = {'id': user_id}
         results = connectToMySQL(cls.DB).query_db(query,data)
         all_poems = []
         print(f'**********************{results}')
