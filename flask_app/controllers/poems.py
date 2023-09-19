@@ -9,9 +9,10 @@ from flask_app.models.poem import Poem
 def create():
     if 'user_id' not in session:
         return redirect('/')
-    return render_template('addPoem.html')
+    user=User.get_by_id(session['user_id'])
+    return render_template('addPoem.html', user=user)
 
-@app.route('/poem/create/process', methods=['POST'])
+@app.route('/poem/create/process', methods = ['GET', 'POST'])
 def create_poem():
     if 'user_id' not in session:
         return redirect('/')
@@ -23,7 +24,7 @@ def create_poem():
         'title': request.form['title'],
         'author': request.form['author'],
         'genre': request.form['genre'],
-        'poem_text': request.form['poem_text'],
+        'poem_text': request.form['poem_text']
     }
     Poem.save(data)
     return redirect('/dashboard')
@@ -40,25 +41,26 @@ def view_poem(id):
 # Poem Edit Route
 # Poem Edit html hasn't been created (DO NOT FORGET TO CHANGE)***
 @app.route('/poem/edit/<int:id>')
-def edit(id):
+def edit_poem(id):
     if 'user_id' not in session:
         return redirect('/')
 
     return render_template('editPoem.html',poem=Poem.get_by_id({'id': id}))
 
-@app.route('/poem/edit/process/<int:id>', methods=['POST'])
-def edit_poem(id):
+@app.route('/poem/update', methods=['POST'])
+def update_poem():
     if 'user_id' not in session:
         return redirect('/')
     if not Poem.validate_poem(request.form):
-        return redirect(f'/recipes/edit/{id}')
+        return redirect(f'/poem/edit/{id}')
 
     data = {
-        'id': id,
+        "user_id":session['user_id'],
+        'id': request.form['id'],
         'title': request.form['title'],
         'author': request.form['author'],
         'genre': request.form['genre'],
-        'poem_text': request.form['poem_text'],
+        'poem_text': request.form['poem_text']
     }
     Poem.update(data)
     return redirect('/dashboard')

@@ -49,31 +49,20 @@ class User:
     def validate_user(user):
         is_valid = True
   
-        if len(user["first_name"]) == 0:
-            if len(user["last_name"]) == 0:
-                if len(user["email"]) == 0:
-                    if len(user["password"]) == 0:
-                        if len(user["confirm_pw"]) == 0:
-                            flash("All fields are required.")
-                            return False
+      
         if len(user["first_name"]) == 0:
             flash("First Name is rquired.")
-            is_valid = False
-        elif len(user["first_name"]) < 2:
-            flash("First Name must be at least 2 characteres.")
             is_valid = False
         if len(user["last_name"]) == 0:
             flash("Last Name is required.")
             is_valid = False
-        elif len(user["last_name"]) < 2:
-
-        if len(user["first_name"]) < 2:
-            flash("First Name must be at least 2 characteres.")
-            is_valid = False
         if len(user["last_name"]) < 2:
- 
-            flash("First Name must be at least 2 characteres.")
+            flash("Last Name must be at least 2 characteres.")
             is_valid = False
+        if len(user["first_name"]) < 2:
+            flash("First Name must be at least 2 characters.")
+            is_valid = False
+      
         if not EMAIL_REGEX.match(user['email']):
             flash("Invalid email address!")
             is_valid = False
@@ -81,19 +70,13 @@ class User:
         if len(user["password"]) == 0:
             flash("Password is required.")
             is_valid = False
-        elif len(user["password"]) < 8:
+        if len(user["password"]) < 8:
             flash("Password must be at least 8 characteres.")
             is_valid = False
         if len(user["confirm_pw"]) == 0:
             flash("Please confirm password.")
             is_valid = False
-        elif (user["confirm_pw"]) != (user["password"]):
-
-        if len(user["password"]) < 8:
-            flash("Password must be at least 8 characteres.")
-            is_valid = False
         if (user["confirm_pw"]) != (user["password"]):
- 
             flash("Passwords do not match.")
             is_valid = False
         return is_valid

@@ -16,12 +16,11 @@
             </div>
         </div>
         <h2 class="dash-title">Poem Dashboard</h2>
-        <div class="tab-container">
-            <button class="tab-btn active" data-tab="tab1">All Poems</button>
-            <button class="tab-btn" data-tab="tab2">My Poems</button>
+        <div class="tabs">
+            <button class="tab-button" onclick="showTab('tab1')">Tab 1</button>
+            <button class="tab-button" onclick="showTab('tab2')">Tab 2</button>
         </div>
-        <div id="tab-all-poems" class="tab-content">
-            <!-- TAB 1 -->
+        <div id="tab1" class="tab-content">            <!-- TAB 1 -->
             <table>
                 <thead>
                     <tr>
@@ -33,24 +32,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
                     {% for poem in poems %}
+                    <tr>
                         <td>{{poem.id}}</td>
                         <td>{{poem.title}}</td>
                         <td>{{poem.author}}</td>
                         <td>{{poem.genre}}</td>
                         <td>
-                            <a href="###" class="action-link">View</a>
-                            <a href="###" class="action-link">Edit</a>
-                            <a href="###" class="action-link">Delete</a>
+                            <a href="/poem/{{poem.id}}" class="action-link">View</a>
+                            <a href="/poem/edit/{{poem.id}}" class="action-link">Edit</a>
+                            <a href="/poem/delete/{{poem.id}}" class="action-link">Delete</a>
                         </td>
-                    {% endfor %}
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
-        <div id="tab-my-poems" class="tab-content">
-            <!-- TAB 2 -->
+        <div id="tab2" class="tab-content">            <!-- TAB 2 -->
             <table>
                 <thead>
                     <tr>
