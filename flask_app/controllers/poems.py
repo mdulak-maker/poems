@@ -12,7 +12,7 @@ def create():
     user=User.get_by_id(session['user_id'])
     return render_template('addPoem.html', user=user)
 
-@app.route('/poem/create/process', methods=['POST'])
+@app.route('/poem/create/process', methods = ['GET', 'POST'])
 def create_poem():
     if 'user_id' not in session:
         return redirect('/')

@@ -19,11 +19,6 @@ OPENAI_KEY = os.environ.get("OPENAI_API_KEY")
 print("OPENAI API KEY:", OPENAI_KEY)
 openai.api_key = OPENAI_KEY
 
-@app.route ('/poems/add', methods = ['GET', 'POST'] )
-def index():
-    
-    return render_template('addPoem.html')
-
 
 
 @app.route('/openai', methods=['POST'])
