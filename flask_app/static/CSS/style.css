@@ -12,6 +12,10 @@
     display: flex;
 }
 
+a {
+    color: rgba(163, 143, 59, 0.947)
+}
+
 /* .................................LOGIN & REGISTRATION. */
 .login-format {
     display: flex;
@@ -158,14 +162,22 @@
     margin-top: 50px;
 }
 
+a {
+    text-decoration: none;
+}
 /* .......................................TOP NAV */
 .top-nav {
-    background-color: rgb(116, 116, 116);
+    background-color: rgb(148, 219, 183);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: whitesmoke;
+    color: rgb(106, 78, 51);
     padding: 20px 40px;
+    box-shadow: 2px 2px 10px;
+}
+
+.top-nav h1 {
+    
 }
 
 .profile-nav {
@@ -175,43 +187,60 @@
 
 .nav-link {
     text-decoration: none;
-    color: whitesmoke;
+    color: rgb(106, 78, 51);
+    background-color: rgba(106, 78, 51, 0.111);
     font-size: 20px;
     font-weight: 600;
+    padding: 5px 10px;
+    border:1px solid rgb(106,78,51);
+    border-radius: 5px;
 }
 
 .nav-title {
     text-decoration: none;
-    color:whitesmoke;
+    color:rgb(106, 78, 51);
     text-shadow: 1.5px 1.5px rgba(255, 255, 255, 0.419);
 }
 /* ........................................DASHBOARD */
 .dash-title {
-    color: gray;
-    padding: 20px 40px;
+    color: rgb(106, 78, 51);
+    padding: 10px 60px;
+    margin-top: 30px;
 }
 
 .dash-background {
-    background-color: gainsboro;
+    background-color: rgb(197, 235, 217);
     height: 100vh;
 }
 
 /* .....................................DASH TABLE */
+.main-container {
+    padding: 40px;
+}
+.table-container {
+    padding: 20px 40px;
+    border:2px solid rgb(106, 78, 51);
+    border-radius: 15px;
+}
+
 /* Style for tabs */
 .tabs {
     display: flex;
+    margin-left: 50px;
 }
 
 .tab-button {
-    background-color: #007BFF;
-    color: white;
+    background-color: rgb(159, 208, 185);
+    color: rgb(106, 78, 51);
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+    border:1px solid rgb(106, 78, 51);
+    border-radius: 15px 15px 0px 0px;
 }
 
 .tab-button:hover {
-    background-color: #0056b3;
+    background-color: rgb(138, 190, 166);
 }
 
 /* Style for tab content */
@@ -220,15 +249,20 @@
 }
 
 table {
+    color: rgb(80, 54, 30);
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
 th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    padding: 10px;
     text-align: left;
+}
+
+.table-title {
+    color: rgb(106, 78, 51);
+    text-align: center;
 }
 
 /* Show the first tab by default */
@@ -321,4 +355,5 @@ th, td {
     border: 2px double gray;
     border-radius: 10px;
     padding: 10px;
+    font-size: 18px;
 }
