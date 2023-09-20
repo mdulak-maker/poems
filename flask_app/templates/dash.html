@@ -64,8 +64,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                {% for my_poem in my_poems %}
+                            {% for my_poem in my_poems %}
+                                <tr>
                                     <td>{{my_poem.id}}</td>
                                     <td>{{my_poem.title}}</td>
                                     <td>{{my_poem.author}}</td>
@@ -75,8 +75,8 @@
                                         <a href="###" class="action-link">Edit</a>  |  
                                         <a href="###" class="action-link">Delete</a>
                                     </td>
-                                {% endfor %}
                                 </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
