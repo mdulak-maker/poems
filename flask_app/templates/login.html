@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Barlow:wght@200;400&family=Dancing+Script&family=Handjet&family=Inter:wght@200&family=Roboto:wght@100&family=Varela+Round&display=swap" rel="stylesheet">
     <title>User Login</title>
 </head>
 <body>
     <div class="background">
         <div class="login-format">
             <div class="left-panel">
-                <img src="" alt="logo_img" id="main-logo">
+                <img src="/../static/img/login-poems.jpg" alt="logo_img" id="main-logo">
             </div>
             <div class="right-panel">
+                <h1 class="welcome-msg">Welcome to Poems</h1>
                 <div class="form-container">
                     <h1>Login</h1>
                     <div class="validation-text">
@@ -35,7 +39,7 @@
                                 <input type="password" class="form-input" name="password">
                             </div>
                             <div>
-                                <input class="submit-btn" type="submit" value="Submit">
+                                <input class="submit-btn" type="submit" value="Login">
                             </div>
                         </form>
                         <div class="register-optn">

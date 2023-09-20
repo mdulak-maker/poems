@@ -8,14 +8,23 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Barlow:wght@200;400&family=Dancing+Script&family=Handjet&family=Inter:wght@200&family=Roboto:wght@100&family=Varela+Round&display=swap" rel="stylesheet">
 </head>
-<body class="bg-light">
+<body class="dash-background">
+    <div class="top-nav">
+        <a href="/dashboard" class="nav-title"><img src="/../static/img/poems_logo.png" alt="logo_image" class="logo"></a>
+        <div class="profile-nav">
+            <a href="/logout" class="nav-link">Logout</a>
+        </div>
+    </div>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <!-- New Form on the Left Side -->
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header bg-primary text-white text-center">
+                    <div class="card-header text-center add-box">
                         <h4>New Poem Submission</h4>
                     </div>
                     <div class="card-body">
@@ -37,7 +46,7 @@
                                 <textarea id="poem_text" name="poem_text" class="form-control" rows="4" required></textarea>
                             </div>
                             <div class="form-group text-center">
-                                <input type="submit" value="Submit" class="btn btn-primary">
+                                <input type="submit" value="Submit" class="submit-btn">
                             </div>
                         </form>
                     </div>
@@ -55,17 +64,17 @@
                     {% endwith %}
                 </div>
                 <div class="card">
-                    <div class="card-header bg-primary text-white text-center">
-                        <h4>OpenAI Text Submission</h4>
+                    <div class="card-header text-center ai-box">
+                        <h4>AI Poems</h4>
                     </div>
                     <div class="card-body">
                         <form action="/openai" method="post" id="openaiForm">
                             <div class="form-group">
-                                <label for="input">Input:</label>
+                                <label for="input">Tell our AI your idea for a poem:</label>
                                 <textarea name="input" id="input" class="form-control" rows="10"></textarea>
                             </div>
                             <div class="form-group text-center">
-                                <input type="submit" value="Submit" class="btn btn-primary">
+                                <input type="submit" value="Submit" class="submit-btn">
                             </div>
                         </form>
                     </div>
