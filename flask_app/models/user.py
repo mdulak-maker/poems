@@ -49,7 +49,7 @@ class User:
     def validate_user(user):
         is_valid = True
   
-      
+    
         if len(user["first_name"]) == 0:
             flash("First Name is rquired.")
             is_valid = False
